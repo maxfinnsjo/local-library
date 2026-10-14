@@ -1,5 +1,65 @@
+/* Light polish on top of Bootstrap: a sidebar column and calmer type. */
+body {
+    font-family: system-ui, "Segoe UI", Roboto, sans-serif;
+    color: #23262b;
+    background: #fafaf7;
+}
+
+.sidebar {
+    min-height: 100vh;
+    padding: 1.5rem 1.25rem;
+    background: #1f3a4d;
+    color: #c9d6df;
+}
+
+.brand {
+    margin-bottom: 1.5rem;
+    color: #fff;
+    font-size: 1.25rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+}
+
 .sidebar-nav {
-    margin-top: 20px;
+    margin: 0 0 1.25rem;
     padding: 0;
     list-style: none;
+}
+
+.sidebar-nav li {
+    padding: 0.2rem 0;
+}
+
+.sidebar a,
+.sidebar .btn-link {
+    color: #e8eef2;
+}
+
+.sidebar a:hover,
+.sidebar .btn-link:hover {
+    color: #f2c14e;
+    text-decoration: none;
+}
+
+.sidebar hr {
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.main {
+    max-width: 60rem;
+    padding: 2rem 2.5rem;
+}
+
+.main h1 {
+    margin-bottom: 1.25rem;
+    font-weight: 700;
+}
+
+.main h2,
+.main h4 {
+    margin-top: 1.5rem;
+}
+
+.main ul li {
+    padding: 0.15rem 0;
 }

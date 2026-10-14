@@ -6,8 +6,6 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   
   <!-- Add additional CSS in static file -->
   {% load static %}
@@ -18,7 +16,8 @@
 <div class="container-fluid">
 
 <div class="row">
-  <div class="col-sm-2">
+  <div class="col-sm-2 sidebar">
+  <p class="brand">Local Library</p>
   {% block sidebar %}
   <ul class="sidebar-nav">
     <li><a href="{% url 'index' %}">Home</a></li>
@@ -30,7 +29,7 @@
    {% if user.is_authenticated %}
      <li>User: {{ user.get_username }}</li>
      <li><a href="{% url 'my-borrowed' %}">My Borrowed</a></li>
-     <li><a href="{% url 'logout'%}?next={{request.path}}">Logout</a></li>   
+     <li><form method="post" action="{% url 'logout' %}">{% csrf_token %}<button type="submit" class="btn btn-link p-0">Logout</button></form></li>   
    {% else %}
      <li><a href="{% url 'login'%}?next={{request.path}}">Login</a></li>   
    {% endif %} 
@@ -49,7 +48,7 @@
  
 {% endblock %}
   </div>
-  <div class="col-sm-10 ">
+  <div class="col-sm-10 main">
   {% block content %}{% endblock %}
   
   {% block pagination %}
